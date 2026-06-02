@@ -43,8 +43,22 @@ done
 
 $COMPOSE -f docker-compose.yml -f docker-compose.dev.yml up -d backend
 
+echo "Waiting for Brain API..."
+for i in $(seq 1 30); do
+  if curl -sf http://localhost:8000/health >/dev/null 2>&1; then
+    echo "Brain API is ready."
+    break
+  fi
+  if [[ "$i" -eq 30 ]]; then
+    echo "WARNING: Brain API did not respond on :8000 within 60s. Check: docker compose logs backend"
+  fi
+  sleep 2
+done
+
+echo ""
 echo "==> Brain API: http://localhost:8000/health"
-echo "==> To start web dashboard:"
-echo "    cd web && npm run dev"
-echo "==> To create admin user:"
-echo "    cd brain/backend && source .venv/bin/activate && python scripts/create_admin.py"
+echo "==> Web dashboard:"
+echo "    cd web && npm install && npm run dev"
+echo "    → http://localhost:5173"
+echo "==> First account: http://localhost:5173/signup  (or see SETUP.md Path B for demo seed)"
+echo "==> MCP token printed above by generate-env.sh (for Cursor)"
