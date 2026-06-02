@@ -15,6 +15,8 @@ git clone https://github.com/penlo-hq/meeting-capture.git meeting-capture
 
 See [SETUP.md](./SETUP.md) for the full local dev guide.
 
+**Architecture:** See [ARCHITECTURE.md](./ARCHITECTURE.md) for the comprehensive platform architectural summary (external review document).
+
 ## API integration matrix
 
 | Client | Auth | Base URL config | Endpoint |
