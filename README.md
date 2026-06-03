@@ -15,6 +15,8 @@ git clone https://github.com/penlo-hq/meeting-capture.git meeting-capture
 
 See [SETUP.md](./SETUP.md) for the full local dev guide.
 
+**Merging code?** See [MERGE_GUIDE.md](./MERGE_GUIDE.md) for the exact PRs to merge (canonical as of June 2026).
+
 **Architecture:** See [ARCHITECTURE.md](./ARCHITECTURE.md) for the comprehensive platform architectural summary (external review document).
 
 ## API integration matrix
