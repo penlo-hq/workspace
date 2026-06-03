@@ -10,7 +10,7 @@ These branches match Sanjoy's local working tree as of the commits listed. After
 
 | Step | Repo | PR | Branch | Tip commit |
 |------|------|-----|--------|------------|
-| 1 | [workspace](https://github.com/penlo-hq/workspace) | **[#1](https://github.com/penlo-hq/workspace/pull/1)** | `fix/smoke-e2e-signup-payload` | `e50ae20` |
+| 1 | [workspace](https://github.com/penlo-hq/workspace) | **[#1](https://github.com/penlo-hq/workspace/pull/1)** | `fix/smoke-e2e-signup-payload` | `a763a05` |
 | 2 | [brain](https://github.com/penlo-hq/brain) | **[#16](https://github.com/penlo-hq/brain/pull/16)** | `feat/ghost-reviewer-mcp` | `3c449b4` |
 | 3 | [web](https://github.com/penlo-hq/web) | **[#12](https://github.com/penlo-hq/web/pull/12)** | `feat/dashboard-lan-dev-and-signup` | `e442d18` |
 | 4 | [flow](https://github.com/penlo-hq/flow) | **[#4](https://github.com/penlo-hq/flow/pull/4)** | `feat/onboarding-lan-dev-and-sync` | `7d055cf` |
@@ -36,7 +36,7 @@ From a monorepo root with all repos cloned:
 ```bash
 # workspace
 cd workspace && git checkout main && git pull && git rev-parse --short HEAD
-# expect: e50ae20 or later containing that commit
+# expect: a763a05 or later containing that commit
 
 # brain
 cd ../brain && git checkout main && git pull && git rev-parse --short HEAD
