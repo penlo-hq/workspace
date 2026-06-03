@@ -4,7 +4,7 @@ set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 API="${PENLO_API_URL:-http://localhost:8000}"
-EMAIL="${SMOKE_EMAIL:-smoke-$(date +%s)@penlo.test}"
+EMAIL="${SMOKE_EMAIL:-smoke-$(date +%s)@example.com}"
 PASSWORD="${SMOKE_PASSWORD:-SmokeTest123!}"
 COMPANY="${SMOKE_COMPANY:-Smoke Test Co}"
 
@@ -15,7 +15,7 @@ echo "$health" | grep -q '"status":"ok"' || { echo "Health failed: $health"; exi
 echo "==> Company signup"
 signup=$(curl -sf -X POST "$API/api/v1/auth/company" \
   -H 'Content-Type: application/json' \
-  -d "{\"company_name\":\"$COMPANY\",\"email\":\"$EMAIL\",\"password\":\"$PASSWORD\",\"name\":\"Smoke User\"}" \
+  -d "{\"company_name\":\"$COMPANY\",\"admin_email\":\"$EMAIL\",\"admin_password\":\"$PASSWORD\",\"admin_name\":\"Smoke User\"}" \
   -c /tmp/penlo-smoke-cookies.txt) || {
   echo "Signup failed (ALLOW_COMPANY_SIGNUP may be false). Try logging in with existing credentials."
   exit 1
