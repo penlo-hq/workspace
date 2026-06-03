@@ -8,12 +8,12 @@ These branches match Sanjoy's local working tree as of the commits listed. After
 
 ## Merge order
 
-| Step | Repo | PR | Branch | Tip commit |
-|------|------|-----|--------|------------|
-| 1 | [workspace](https://github.com/penlo-hq/workspace) | **[#1](https://github.com/penlo-hq/workspace/pull/1)** | `fix/smoke-e2e-signup-payload` | `2934377` |
-| 2 | [brain](https://github.com/penlo-hq/brain) | **[#16](https://github.com/penlo-hq/brain/pull/16)** | `feat/ghost-reviewer-mcp` | `3c449b4` |
-| 3 | [web](https://github.com/penlo-hq/web) | **[#12](https://github.com/penlo-hq/web/pull/12)** | `feat/dashboard-lan-dev-and-signup` | `e442d18` |
-| 4 | [flow](https://github.com/penlo-hq/flow) | **[#4](https://github.com/penlo-hq/flow/pull/4)** | `feat/onboarding-lan-dev-and-sync` | `7d055cf` |
+| Step | Repo | PR | Branch |
+|------|------|-----|--------|
+| 1 | [workspace](https://github.com/penlo-hq/workspace) | **[#1](https://github.com/penlo-hq/workspace/pull/1)** | `fix/smoke-e2e-signup-payload` |
+| 2 | [brain](https://github.com/penlo-hq/brain) | **[#16](https://github.com/penlo-hq/brain/pull/16)** | `feat/ghost-reviewer-mcp` |
+| 3 | [web](https://github.com/penlo-hq/web) | **[#12](https://github.com/penlo-hq/web/pull/12)** | `feat/dashboard-lan-dev-and-signup` |
+| 4 | [flow](https://github.com/penlo-hq/flow) | **[#4](https://github.com/penlo-hq/flow/pull/4)** | `feat/onboarding-lan-dev-and-sync` |
 
 **meeting-capture** — no open PR; `main` is current.
 
@@ -31,24 +31,13 @@ These branches match Sanjoy's local working tree as of the commits listed. After
 
 ## Verify after merge
 
-From a monorepo root with all repos cloned:
+From a monorepo root with all repos cloned, each repo's `main` should contain the merged PR branch tip:
 
 ```bash
-# workspace
-cd workspace && git checkout main && git pull && git rev-parse --short HEAD
-# expect: 2934377 or later containing that commit
-
-# brain
-cd ../brain && git checkout main && git pull && git rev-parse --short HEAD
-# expect: 3c449b4 or later
-
-# web
-cd ../web && git checkout main && git pull && git rev-parse --short HEAD
-# expect: e442d18 or later
-
-# flow
-cd ../flow && git checkout main && git pull && git rev-parse --short HEAD
-# expect: 7d055cf or later
+cd workspace && git checkout main && git pull
+cd ../brain && git checkout main && git pull
+cd ../web && git checkout main && git pull
+cd ../flow && git checkout main && git pull
 ```
 
 Smoke test (after `bash scripts/dev-up.sh`):
