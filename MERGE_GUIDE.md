@@ -1,12 +1,12 @@
-# Merge guide — canonical PRs (June 2026)
+# Merge guide — which PRs to merge (June 2026)
 
-**For reviewers:** merge **only** the four PRs below, in order. Everything else in this org should stay closed.
+**For reviewers:** merge **only** the four PRs in the green table below, in order. Other open PRs can stay open for history/reference — just don't merge them.
 
-These branches match Sanjoy's local working tree as of the commits listed. After merging all four, a fresh clone + checkout of `main` in each repo reproduces the same code (excluding local-only `.env` files).
+After merging all four, a fresh clone + `main` in each repo matches Sanjoy's local working tree (excluding local-only `.env` files).
 
 ---
 
-## Merge order
+## ✅ Merge these (in order)
 
 | Step | Repo | PR | Branch |
 |------|------|-----|--------|
@@ -19,19 +19,28 @@ These branches match Sanjoy's local working tree as of the commits listed. After
 
 ---
 
-## Do not merge (close if still open)
+## 📁 Open for reference — do NOT merge
 
-| Repo | PR | Reason |
-|------|-----|--------|
-| web | [#11](https://github.com/penlo-hq/web/pull/11) | Superseded by **#12** (strict superset of commits) |
-| flow | [#3](https://github.com/penlo-hq/flow/pull/3) | Superseded by **#4** (strict superset of commits) |
-| brain | [#17](https://github.com/penlo-hq/brain/pull/17) | Unrelated website work; already closed |
+These PRs remain open but are **older or duplicate** work. Merging them would miss the latest code or create conflicts.
+
+| Repo | PR | Merge instead | Why |
+|------|-----|---------------|-----|
+| web | [#11](https://github.com/penlo-hq/web/pull/11) | **#12** | #12 contains all of #11's commits plus the latest dashboard/signup/LAN work |
+| flow | [#3](https://github.com/penlo-hq/flow/pull/3) | **#4** | #4 contains all of #3's commits plus onboarding and LAN Brain fixes |
+
+---
+
+## ⏸️ Closed / unrelated
+
+| Repo | PR | Notes |
+|------|-----|-------|
+| brain | [#17](https://github.com/penlo-hq/brain/pull/17) | Separate marketing-site work; not part of this merge batch |
 
 ---
 
 ## Verify after merge
 
-From a monorepo root with all repos cloned, each repo's `main` should contain the merged PR branch tip:
+From a monorepo root with all repos cloned:
 
 ```bash
 cd workspace && git checkout main && git pull
@@ -60,10 +69,10 @@ Generate dev secrets with `bash scripts/generate-env.sh`.
 
 ---
 
-## What each PR contains
+## What each canonical PR contains
 
 ### workspace #1
-Fixes `scripts/smoke-e2e.sh` signup payload field names (`admin_email`, `admin_password`, `admin_name`).
+Smoke-e2e signup payload fix, this merge guide, and `LOCAL_CLIENTS.md`.
 
 ### brain #16
 Ghost Reviewer MCP, Redis WebSocket pub/sub, graph hygiene, dispatch executor + GitHub fields, timeline API, penlo-brain ingest hardening, MCP claim/report tools.
