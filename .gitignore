@@ -1,0 +1,5 @@
+# Local Cursor MCP config may contain secrets
+.cursor/mcp.json
+
+# Environment files with secrets (never commit)
+.env

@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "penlo-brain": {
+      "command": "<INSERT_YOUR_ABSOLUTE_PATH_TO_VENV_PYTHON>",
+      "args": ["server.py"],
+      "cwd": "<INSERT_YOUR_ABSOLUTE_PATH_TO_BRAIN_MCP>",
+      "env": {
+        "PENLO_BACKEND_URL": "http://localhost:8000",
+        "PENLO_API_TOKEN": "<INSERT_YOUR_PENLO_API_TOKEN>"
+      }
+    }
+  }
+}
