@@ -17,7 +17,9 @@ Penlo is a **company memory platform** that eliminates lost context from convers
 - **Mobile users (Flow iOS)** — capture, privacy staging, sync, dispatch approval on-the-go
 - **Engineering agents (MCP)** — pick approved dispatches, build PRs, report back
 
-**Explicitly out of scope today (Tier 4 backlog per product roadmap):** passive always-on listening, GDPR erasure API, billing/Stripe, SAML/SSO, multi-region, full mobile settings panel, Flow tasks view, structured request-ID observability.
+**Explicitly out of scope today (Tier 4 backlog per product roadmap):** passive always-on listening, GDPR erasure API, SAML/SSO, multi-region, full mobile settings panel, Flow tasks view, structured request-ID observability.
+
+**Billing:** Stripe Checkout + Customer Portal for Team (per-seat) and Starter (free). See `brain/STRIPE_SETUP.md`.
 
 ---
 
